@@ -1,9 +1,27 @@
 *{
     margin:0px;
     padding:0px;
-    background-color: darkslateblue;
+    
 }
 body{
     font-family: 'MedievalSharp', cursive;
+    color:floralwhite;
+    background-color: darkslateblue;
+}
+.introBox{
+    display: flex;
+    flex-direction: row;
+    flex:1,1,auto;
+    margin-top:300px;
+    align-content: center;
+    justify-content: space-between;
+    font-size: 120px;
+    max-height: 50px;
+    background-color: gold;
+}
+.introBox .p{
+    
+}
+.wizardBox{
     
 }
