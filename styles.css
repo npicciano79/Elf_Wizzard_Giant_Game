@@ -18,6 +18,25 @@ body{
     font-size: 100px;
     flex:1 1 auto;
 }
+.scrollContainer{
+    margin-top: 40px;
+    display:flex;
+    align-content: center;
+    
+
+}
+
+.scrollContainer img{
+    height:475px;
+}
+.scrollContainer p{
+    display: flex;  
+    justify-content: center;
+}
+
+
+
+
 .buttons{
     display: flex;
     justify-content: space-evenly;
@@ -39,20 +58,6 @@ body{
     
     
 
-}
-
-.elfBox img{
-    height:350px;  
-
-}
-
-.wizardBox img{
-    height:375px;
-}
-
-.giantBox img{
-    height: 500px;
-}
 
 .directionLinks{
     display: flex;
@@ -66,16 +71,29 @@ body{
     padding:100px;
     color: white;
 }
-
-.buttons button{
-    
-}
-.rules{
+#rules{
     display: flex;
-    justify-content: center;
+    
     font-size: 40px;
     margin:20px;
 }
+
+.rulesTitle{
+    font-size: 75px;
+    margin-bottom: 40px;
+}
+
+#rules .ul{
+    margin-top: 40px;
+    justify-content: flex-start;
+    
+    
+
+
+
+}
+
+
 #characters{
     margin:100px;
 }
