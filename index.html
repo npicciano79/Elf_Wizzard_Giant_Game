@@ -4,91 +4,85 @@
         <title>Elves vs Wizzards vs Giants</title>
         <link rel='stylesheet' href='styles.css'>
         <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-        <script src='javascript.js'>Image</script>
+        <script src='javascript.js'>
+            
+        </script>
 
     </head>
-    <body onload="titleImageScroll()">
-        <div class='scrollContainer'>
-            <div class="containerKnight">
-                <img src='images/knighttransparent.png' alt='knight'>
-                <p>Knight</p>
-            </div>
-            <div class="containerQueen">
-                <img src='images/queentrans.png' alt='king'>
-                <p>Queen</p>
-            </div>
-            <div class="containerElf">
-                <img src='images/elf2tran.png' alt='elf'>
-                <p>Elf</p>
-            </div>
-            <div class="containerWizard">
-                <img src='images/wizzardtrans.png' alt='wizard'>
-                <p>Wizzard</p>
-            </div>  
-            <div class="containerGiant">
-                <img src='images/gianttran.png' alt='wizard'>
-                <p>Giant</p>
-            </div>   
-            <div class='containerCastleTitle'>
+    <body>
+        <div class="castle__title">
             <p>Castle Wars</p>
-            <div class='castleimage'>
-                <img src='images/castletrans.png'>
-            </div>
-            </div>       
-        </div>
-        
+            <img src='images/castletrans.png'>
 
-            
-        <!--direction links code-->
-        <div class="directionLinks">
-            <div class="rulesButton_class">
-                <a href='#rules'>How to Play</a>    
-            </div>
-            <div class="characterButton_class">
-                <a href='#characters'>Characters</a>    
-            </div>
-            <div class="nameButton_class">
-                <a href='#letsPlay'>Lets Play</a>    
-            </div>
-        </div>          
-      
-        <!--Rules of play-->
-        <div id='rules'>
-            <div class='rulesTitle'>How to play</div>
-            <br>
+        </div>
+        <div class="select__options">
+                <div class="rulesButton_class">
+                    <a href='#rules'>How to Play</a>    
+                </div>
+                <div class="characterButton_class">
+                    <a href='#players'>Meet the Players</a>    
+                </div>
+                <div class="nameButton_class">
+                    <a href='#letsPlay'>Lets Play</a>    
+                </div>
+        </div> 
+
+        <div class="rules__Container" id='rules'>
             <ul>
-                <br><br>
+                <div class='rulesTitle'>How to play</div>
                 <li>Select the character, Elf, Wizzard or Giant.</li>
                 <li>The computer will then randomly select a character. </li>
                 <li>An elf will defeat a wizzard.</li>
                 <li>A wizzard will defeat a giant.</li>
-                <li>A giant will defeat an elf.</li>
-                
+                <li>A giant will defeat an elf.</li>                
             <ul>
+                <div class="rules__image"><img src='images/elf2tran.png'> </div>
         </div>
 
-        <div class="characterScroll">
-            <button class='characterScrollButton prev'>&#8658;</button>
-            <button class='characterScrollButton next'>&#8656;</button>
-            <ul>
-                <li class='slide'>
-                    <img src='images/elf2tran.png'>   
-                </li>
-                <li class='slide'>
-                    <img src='images/gianttran.png'>   
-                </li>
-                <li class='slide'>
-                <img src='images/queentrans.png'>    
-                </li>
-                <li class='slide'>
-                    <img src='images/wizzardtrans.png'>    
-                </li>
-                <li class='slide'>
-                <img src='images/knighttransparent.png'>    
-                </li>
-            </ul>
+
+               
+        <div class='carousel' id="players">
+         
+         <br>
+            <button class="carousel__button carousel__button--left">
+                <img src="https://img.icons8.com/ios/50/000000/double-left.png"/>
+            </button>
             
-        </div>
+            <div class="carousel__track-container">
+                <div class="meet-Players"><p>Meet the Players</p></div>
+                <ul class="carousel__track">
+                    
+                    <li class="carousel__slide">
+                        <img class='carousel__image' src='images/queentrans.png' id='queenpic' alt='queen'>Queen</li>
+                    <li class="carousel__slide">
+                        <img class='carousel__image' src='images/elf2tran.png' alt='elf'>Elf</li>
+                    <li class="carousel__slide">
+                        <img class='carousel__image'src='images/gianttran.png' alt='giant'>Giant</li>
+                    <li class="carousel__slide">
+                        <img class='carousel__image' src='images/knighttransparent.png' alt='knight'>Knight</li>
+                    <li class="carousel__slide">
+                        <img class='carousel__image' src='images/wizzardtrans.png' alt='wizard'>Wizzard</li>
+
+                </ul>
+                
+                
+            </div>
+
+            <button class="carousel__button carousel__button--right"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-right-arrows-dreamstale-lineal-dreamstale-8.png"/></button>
+            
+            <div class="carousel__nav"></div>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+
+         </div>   
+            
+           
+        
+
+       
 
         <div id='letsPlay'>
             <p>lets play</p>
