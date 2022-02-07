@@ -4,8 +4,7 @@
         <title>Elves vs Wizzards vs Giants</title>
         <link rel='stylesheet' href='styles.css'>
         <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-        <script src='javascript.js'>
-            
+        <script src='javascript.js'>   
         </script>
 
     </head>
@@ -27,87 +26,63 @@
                 </div>
         </div> 
 
-        <div class="rules__Container" id='rules'>
-            <ul>
-                <div class='rulesTitle'>How to play</div>
+        <div class='rulesTitle'>How to play</div>
+        <div class="rules__Container" id='rules'>          
+            <ul>  
                 <li>Select the character, Elf, Wizzard or Giant.</li>
                 <li>The computer will then randomly select a character. </li>
                 <li>An elf will defeat a wizzard.</li>
                 <li>A wizzard will defeat a giant.</li>
-                <li>A giant will defeat an elf.</li>                
-            <ul>
+                <li>A giant will defeat an elf.</li> 
+            </ul>
                 <div class="rules__image"><img src='images/elf2tran.png'> </div>
         </div>
 
 
-               
-        <div class='carousel' id="players">
-         
-         <br>
-            <button class="carousel__button carousel__button--left">
-                <img src="https://img.icons8.com/ios/50/000000/double-left.png"/>
-            </button>
+        <div class="next__Players">
+            <a href="#players">Next Section</a>
+        </div>
+
+
+        <div class="meet-Players"><p>Meet test test the Players</p></div>       
+        <div class='carousel' id="players">          
             
-            <div class="carousel__track-container">
-                <div class="meet-Players"><p>Meet the Players</p></div>
-                <ul class="carousel__track">
-                    
-                    <li class="carousel__slide">
-                        <img class='carousel__image' src='images/queentrans.png' id='queenpic' alt='queen'>Queen</li>
+                
+
+                <ul>
                     <li class="carousel__slide">
                         <img class='carousel__image' src='images/elf2tran.png' alt='elf'>Elf</li>
                     <li class="carousel__slide">
                         <img class='carousel__image'src='images/gianttran.png' alt='giant'>Giant</li>
                     <li class="carousel__slide">
-                        <img class='carousel__image' src='images/knighttransparent.png' alt='knight'>Knight</li>
-                    <li class="carousel__slide">
                         <img class='carousel__image' src='images/wizzardtrans.png' alt='wizard'>Wizzard</li>
-
                 </ul>
                 
                 
-            </div>
-
-            <button class="carousel__button carousel__button--right"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-right-arrows-dreamstale-lineal-dreamstale-8.png"/></button>
             
-            <div class="carousel__nav"></div>
-                <button class="carousel__indicator"></button>
-                <button class="carousel__indicator"></button>
-                <button class="carousel__indicator"></button>
-                <button class="carousel__indicator"></button>
-                <button class="carousel__indicator"></button>
+            <!--next and previous buttons-->
+            <button class="next">&#10094;</button>
+            <button class="prev">&#10095;</button>
+          </div> 
 
-         </div>   
+            <!--circle nav-->
+            <div class="carousel__nav">
+                <button class="carousel__indicator current-slide"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+            </div>
+                 
+           
+         
             
            
         
 
        
 
-        <div id='letsPlay'>
+        <div class='lets__Play' id='letsPlay'>
             <p>lets play</p>
         </div>
           
     </body>
 </html>
-
-
-
-
-
-
-<!--
-<div class="rulesButton_class">
-                <button id='rulesButton_id' onclick="document.getElementsByClassName('rules').scrollIntoView();">Rules</button>
-            </div>   
-            <div class="characterButton_class">
-                <button id='characterButton_id' onclick="rulesFunction()">Characters</button>
-            </div>
-            <div class="namerButton_class">
-                <button id='nameButton_id' onclick="rulesFunction()">Name</button>
-            </div>
-            <div class="playButton_class">
-                <button id='playButton_id' onclick="rulesFunction()">Lets Play</button>
-            </div>
-
--->
