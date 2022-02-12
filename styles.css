@@ -46,7 +46,7 @@ body{
     justify-content: center;
     margin-left: 80px;
     font-size: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .rulesTitle{
@@ -56,78 +56,76 @@ body{
     justify-content: center;
     
 }
-
-.next__Players a{
-    color:white;
+.next__Select{
     display: flex;
     justify-content: center;
     margin-bottom: 200px;
+
+}
+.next__Select a{
+    color:white;
     font-size: 40px;
 }
 
-.meet_Players{
+.meet__Players{
+    margin-bottom: 40px;
     display: flex;
-    align-items: center;
-    font-size: 200px;
-    
+    justify-content: center; 
+    font-size: 75px;  
     
 }
-
-
-
-
 
 .carousel{
-    margin:auto;
+    margin: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:center;
     height: 80%;
     width:100%;
-    position:relative;
-    
-    
-    
-    
-}
-.carousel__image{
-    
-    height:500px;
-    width:400px;
-    
-    
-
-}
-.carousel__track-container{
-    font-size: 80px;
-    height:100%;
-    position:relative;
-    width:100%;
-    
-    
+    position:absolute;
+    font-size: 100px;   
 }
 
-.carousel__track{
-    padding:0;
 
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin-bottom:60px;
-    
-}
-/*sets postion of images and hides by default*/
 .carousel__slide{
     display: none;
     position: absolute;
-    
-
+    margin-top:100px;
+    margin-bottom: 100px;
 }
 
+
+
+/*
+.carousel__image{
+    display: flex;
+    align-items: center;
+    height:500px;
+    width:400px;   
+
+}
+*/
+
+.carousel__buttons{
+    display: flex;
+    align-items: flex-start;
+
+    
+}
+.nav__button{
+    height:300px;
+    width: 50px;
+   
+}
+
+.
+
+
+/*
 .carousel__button{
     position:relative;
     height:60px;
     cursor: pointer;
+    margin-top:100px;
 }
 .carousel__button img{
     width:20px;
@@ -135,11 +133,12 @@ body{
 
 .carousel__nav{
 
-    margin-top:250px;
+    
     padding:10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 200px;
 
 }
 .carousel__indicator{
@@ -164,12 +163,16 @@ body{
 
 .lets__Play{
     margin-top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
 }
 
 
 
 
-
+*/
 
 
 
