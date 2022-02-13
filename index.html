@@ -67,29 +67,27 @@
                 
             
             <div class="carousel__buttons">
-                <button class="nav__button nav__next">&#10094;</button>
-                <button class="nav__button nav__prev">&#10095;</button>     
+                <button class="nav__button nav__next" onclick="plusSlides(1)">&#10094;</button>
+                <button class="nav__button nav__prev" onclick="plusSlides(-1)">&#10095;</button>     
             </div>
               
 
-          
+        </div>       
             <div class="carousel__nav">
-                <button class="carousel__indicator current-slide"></button>
-                <button class="carousel__indicator"></button>
-                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator" onclick="currentSlide(1)"></button>
+                <button class="carousel__indicator" onclick="currentSlide(2)"></button>
+                <button class="carousel__indicator" onclick="currentSlide(3)"></button>
             </div>
-    </div>             
-<!--             
-        <div class="next__Select">
-            <a href="#letsPlay">Next Section</a>
-        </div>
-        
-        <div class='lets__Play' id='letsPlay'>
-            <p>Lets play</p>
-        </div>
+                
+         
+            <div class="next__Select">
+                <a href="#letsPlay">Next Section</a>
+            </div>
+          
+        <div class='lets__Play' id='letsPlay'>Lets play</div>
         <div class="game__Play">
 
         </div>
--->        
+      
     </body>
 </html>
