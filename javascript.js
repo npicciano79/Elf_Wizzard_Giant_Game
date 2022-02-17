@@ -1,3 +1,10 @@
+function defaultSlide(){
+    console.log('test');
+
+};
+
+
+
 var slideIndex=1;
 showSlides(slideIndex);
 
@@ -27,6 +34,15 @@ function showSlides(n){
     dots[slideIndex-1].className+=" active";
 
 }
+function name__Get(){
+    let userName=document.getElementById("user__Name").value;
+    page__Two(userName);
+}
+function page__Two(userName){
+    window.location.href="gameplay.html";
+    console.log(userName);
+}
+    
 
 
 
