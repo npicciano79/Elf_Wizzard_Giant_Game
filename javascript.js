@@ -3,8 +3,6 @@ function defaultSlide(){
 
 };
 
-
-
 var slideIndex=1;
 showSlides(slideIndex);
 
@@ -36,12 +34,14 @@ function showSlides(n){
 }
 function name__Get(){
     let userName=document.getElementById("user__Name").value;
-    page__Two(userName);
+    document.getElementById("user__Name").value="";
+    write_UserName(userName);
+    
 }
-function page__Two(userName){
-    window.location.href="gameplay.html";
-    console.log(userName);
+function write_UserName(userName){
+    document.getElementById("insert").innerHTML=userName;
 }
+
     
 
 
