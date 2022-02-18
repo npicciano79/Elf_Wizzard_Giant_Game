@@ -175,6 +175,13 @@ body{
     
 }
 
+.game__Play img{
+    height: 400px;
+}
+#main_game{
+    margin-top: 100px;
+}
+
 
 /*
 .carousel__button{
