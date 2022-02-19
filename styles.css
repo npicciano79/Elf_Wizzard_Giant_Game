@@ -99,7 +99,7 @@ body{
 
 
 
-/*
+
 .carousel__image{
     display: flex;
     align-items: center;
@@ -107,7 +107,7 @@ body{
     width:400px;   
 
 }
-*/
+
 
 .carousel__buttons{
     display: flex;
@@ -178,9 +178,30 @@ body{
 .game__Play img{
     height: 400px;
 }
-#main_game{
-    margin-top: 100px;
+.game__Main{
+    margin-top: 20px;
+    margin-left: 20px;
 }
+.user__Name{
+    display: flex;
+    font-size: 80px;
+    margin-bottom: 50px;
+    margin-left: 400px;
+}
+.vs{
+    margin-left: 300px;
+}
+.computer{
+    margin-left: 200px;
+}
+
+.user__Select input{
+    height: 350px;
+}
+#comp__Select{
+    margin-left: 100px;
+}
+
 
 
 /*
