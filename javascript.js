@@ -33,13 +33,31 @@ function showSlides(n){
 
 }
 function name__Get(){
-    let userName=document.getElementById("user__Name").value;
+    //let user__Name=document.getElementById("user__Name").value;
+    localStorage.setItem("userName",document.getElementById("user__Name").value);
     document.getElementById("user__Name").value="";
-    write_UserName(userName);
+    //
+    
+    page_Two();
     
 }
-function write_UserName(userName){
-    document.getElementById("insert").innerHTML=userName;
+function page_Two(){
+    window.location.href="./gameplay.html";
+    
+    write_UserName()
+    
+    
+}    
+    
+    //;
+    
+
+    //document.getElementById("result__username").innerHTML=user__Name;
+    
+    //write_UserName(userName);
+
+function write_UserName(){
+    console.log(localStorage.getItem("userName"));
 }
 
     
