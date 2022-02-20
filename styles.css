@@ -88,7 +88,7 @@ body{
 
 
 .carousel__slide{
-    /*display: none;*/
+    display: none;
     position: absolute;
     
     
@@ -195,12 +195,29 @@ body{
     margin-left: 200px;
 }
 
-.user__Select input{
-    height: 350px;
+
+/*character displays*/
+.user__compChar{
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    
 }
-#comp__Select{
+.user__Select{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+#user__char{
+    height: 350px; 
+}
+
+#compChar{
     margin-left: 100px;
+    height:350px;
 }
+
 
 
 
