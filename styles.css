@@ -155,6 +155,10 @@ body{
     font-size: 30px;
     
 }
+
+#entered__username{
+    margin-right: 20px;
+}
 .name__Enter{
     display: flex;
     flex-direction: column;
@@ -165,6 +169,7 @@ body{
 #user__Name{
     font-size: 50px;
     height: 50px;
+    
 }
 .input__Name{
     height: 50px;
@@ -178,22 +183,35 @@ body{
 .game__Play img{
     height: 400px;
 }
-.game__Main{
-    margin-top: 20px;
-    margin-left: 20px;
-}
 .user__Name{
     display: flex;
-    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    margin-top: 200px;
+}
+#select__Instruct{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+.game__Main{
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 50px;
-    margin-left: 400px;
+    
+}
+.char__Display{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
 }
 .vs{
-    margin-left: 300px;
+    margin-right: 10px;
 }
-.computer{
-    margin-left: 200px;
-}
+
 
 
 /*character displays*/
@@ -213,9 +231,31 @@ body{
     height: 350px; 
 }
 
-#compChar{
-    margin-left: 100px;
-    height:350px;
+
+.score_keep{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+}
+.user_Score{
+    font-size: 50px;
+    margin-right: 100px;
+}
+.comp_score{
+    font-size: 50px;
+    margin-right: 40px;
+
+}
+
+
+
+
+
+.results{
+    display: flex;
+    justify-content: center;
+
 }
 
 
