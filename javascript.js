@@ -160,6 +160,7 @@ function score__Update(code){
     //console.log(localStorage.getItem('user__score'),localStorage.getItem('comp__score'));
 }
 function score__Display(){
+    
     document.getElementById('user_score').innerHTML=localStorage.getItem('user__score');
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
