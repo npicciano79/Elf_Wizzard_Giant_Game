@@ -1,3 +1,6 @@
+localStorage.setItem('comp__score',0);
+localStorage.setItem('user__score',0);
+
 function defaultSlide(){
     console.log('test');
 
@@ -33,44 +36,34 @@ function showSlides(n){
 
 }
 
-//functions call gameplay screen and pass username
+//function saves username, displays name and clears textbox
 function name__Get(){
-    //let user__Name=document.getElementById("user__Name").value;
+    //var user__Name=document.getElementById("user__Name").value;
     localStorage.setItem("userName",document.getElementById("user__Name").value);
+    //console.log(localStorage.getItem("userName"));
+    document.getElementById("entered__username").innerHTML=localStorage.getItem("userName");
+    document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName");
     document.getElementById("user__Name").value="";
-    //
-    
-    page_Two();
-    
 }
-function page_Two(){
-    window.location.href="./gameplay.html";
-    write_UserName()
-    
-    
-}    
-    
-    //;
-    
-
-    //document.getElementById("result__username").innerHTML=user__Name;
-    
-    //write_UserName(userName);
-
-function write_UserName(){
-    console.log(localStorage.getItem("userName"));
-}
-
-
-
 
 function gameplay(char__Select){
     //main gameplay function
-    const comp__Select=computerSelect(3,char__Select);
-    //console.log(comp__Select,char__Select);
-    const comp__Char=computer__Display(comp__Select);
-    displayCompChar(comp__Char);
-    gameWinner(char__Select,comp__Select);
+    document.getElementById('results').scrollIntoView();
+    localStorage.setItem('userSelect',char__Select);
+    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
+    //console.log(comp__Select,localStorage.getItem('userSelect'));
+    const comp__Char=char__Link(comp__Select);
+    const user__Char=char__Link(localStorage.getItem('userSelect'));
+    //window.location.href="./gameplay.html";
+    const [winner,loser,code]=gameWinner(char__Select,comp__Select);
+    const result_sentence=displayCharResults([winner,loser,code]);
+    score__Update(code);
+    score__Display();
+
+
+    //console.log(result_sentence);
+    //displayCompChar(comp__Char);   
+    
 }
 
 function computerSelect(max,char__Select){
@@ -83,14 +76,14 @@ function computerSelect(max,char__Select){
     return rand;
 }
 
-function computer__Display(comp__Select){
+function char__Link(val){
 
     //determine and display comp value
-    if (comp__Select==0){
+    if (val==0){
         temp__charLink="images/elf2tran.png";
         //console.log("elf",comp__Select);
 
-    }else if (comp__Select==1){
+    }else if (val==1){
         temp__charLink='images/gianttran.png'; 
         //console.log("giant",comp__Select);
     }else{
@@ -98,11 +91,7 @@ function computer__Display(comp__Select){
         //console.log('wizzard');
     }
     //code to display computer character
-    return temp__charLink   
-
-}
-function displayCompChar(comp__Char){
-    document.getElementById("compChar").src=comp__Char;
+    return temp__charLink;   
 
 }
 
@@ -112,18 +101,68 @@ function gameWinner(char__Select,comp__Select){
     let winner=''
     if (char__Select==0){
         if (comp__Select==1){        //elf beats giant, userwins
-            winner="Elf beats giant, user wins";
+            winner=0;
+            loser=1;
+            code=0;
         }else{                          //wizzard beats elf, computer wins
-            winner="wizzard beats elf, computer wins";
+            winner=2;
+            loser=0;
+            code=1;
     }}else if(char__Select==1){
         if (comp__Select==2){            //giant beats wizzard, user wins
-            winner="giant beats wizzard, user wins";    
+            winner=1;
+            loser=2;    
+            code=0;
         }else{                          //elf  beats giant, computer wins
-            winner="eff beats giant, computer wins";
+            winner=0;
+            loser=1;
+            code=1;
     }}else{
         if (comp__Select==0){            //wizzard beats elf, user wins
-            winner="wizzard beats elf, user wins";    
+            winner=2;
+            loser=0;   
+            code=0;
         }else{                          //giant  beats wizzard, computer wins
-            winner="giant beats wizzard, computer wins";
+            winner=1;
+            loser=2;
+            code=1;
     }}
-    console.log(winner);
+    //console.log(winner,loser);
+
+    return [winner,loser,code];
+}
+
+
+function displayCharResults([winner,loser,code]){
+    
+    let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
+    let char__names=['Elf','Giant','Wizzard'];
+    let winner__name=['You',"The Computer"];
+    if (code==0){
+        win=' win';
+    }else{
+        win=' wins';
+    }
+    let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
+    //console.log(result_sentence);
+    return result_sentence;
+
+}
+
+function score__Update(code){
+    if (code==0){
+        var user__score=parseInt(localStorage.getItem('user__score'));
+        localStorage.setItem('user__score',++user__score);
+    }else{
+        var comp__score=parseInt(localStorage.getItem('comp__score'));
+        localStorage.setItem('comp__score',++comp__score);
+    }
+    //console.log(localStorage.getItem('user__score'),localStorage.getItem('comp__score'));
+}
+function score__Display(){
+    document.getElementById('user_score').innerHTML=localStorage.getItem('user__score');
+    document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
+
+
+
+}
