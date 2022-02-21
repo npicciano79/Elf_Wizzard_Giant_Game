@@ -257,7 +257,9 @@ body{
     justify-content: center;
 
 }
-
+.results img{
+    height: 350px;
+}
 
 
 
