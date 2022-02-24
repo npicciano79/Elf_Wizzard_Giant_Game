@@ -31,7 +31,7 @@ function showSlides(n){
     for (i=0;i<dots.length;i++){
         dots[i].className=dots[i].className.replace(" active","");
     }
-    slides[slideIndex-1].style.display="block";
+    slides[slideIndex-1].style.display=" block";
     dots[slideIndex-1].className+=" active";
 
 }
@@ -44,22 +44,24 @@ function name__Get(){
     document.getElementById("entered__username").innerHTML=localStorage.getItem("userName");
     document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName");
     document.getElementById("user__Name").value="";
+    localStorage.setItem('comp__score',0);
+    localStorage.setItem('user__score',0);
+
 }
 
 function gameplay(char__Select){
     //main gameplay function
-    document.getElementById('results').scrollIntoView();
+    document.getElementById('user_NameDisplay').scrollIntoView();
     localStorage.setItem('userSelect',char__Select);
     const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
     //console.log(comp__Select,localStorage.getItem('userSelect'));
     const comp__Char=char__Link(comp__Select);
     const user__Char=char__Link(localStorage.getItem('userSelect'));
     //window.location.href="./gameplay.html";
-    const [winner,loser,code]=gameWinner(char__Select,comp__Select);
-    const result_sentence=displayCharResults([winner,loser,code]);
+    const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
     score__Update(code);
     score__Display();
-
+    const result_sentence=displayCharResults([winner,loser,code]);
 
     //console.log(result_sentence);
     //displayCompChar(comp__Char);   
@@ -132,23 +134,6 @@ function gameWinner(char__Select,comp__Select){
     return [winner,loser,code];
 }
 
-
-function displayCharResults([winner,loser,code]){
-    
-    let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
-    let char__names=['Elf','Giant','Wizzard'];
-    let winner__name=['You',"The Computer"];
-    if (code==0){
-        win=' win';
-    }else{
-        win=' wins';
-    }
-    let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
-    //console.log(result_sentence);
-    return result_sentence;
-
-}
-
 function score__Update(code){
     if (code==0){
         var user__score=parseInt(localStorage.getItem('user__score'));
@@ -164,6 +149,32 @@ function score__Display(){
     document.getElementById('user_score').innerHTML=localStorage.getItem('user__score');
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
+}
 
+function displayCharResults([winner,loser,code]){
+    
+    let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
+    let char__names=['Elf','Giant','Wizzard'];
+    let winner__name=['You',"The Computer"];
+    if (code==0){
+        win=' win';
+    }else{
+        win=' wins';
+    }
+    let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
+    //console.log(result_sentence);
+    document.getElementById('results__sentence').innerHTML=result_sentence;
+
+    document.getElementById("user__picResults").src=char__links[winner];
+    document.getElementById("comp__picResults").src=char__links[loser];
+    
+    
+    
+    
+    
+    
+    
+    
+    //return result_sentence;
 
 }
