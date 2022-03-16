@@ -29,39 +29,80 @@ function showSlides(n){
         slides[i].style.display="none";
     }
     for (i=0;i<dots.length;i++){
-        dots[i].className=dots[i].className.replace(" active","");
+        dots[i].className=dots[i].className.replace("active","");
     }
-    slides[slideIndex-1].style.display=" block";
-    dots[slideIndex-1].className+=" active";
+    //slides[slideIndex-1].style.display="block";
+    //dots[slideIndex-1].className+="active";
 
 }
 
 //function saves username, displays name and clears textbox
 function name__Get(){
     //var user__Name=document.getElementById("user__Name").value;
-    localStorage.setItem("userName",document.getElementById("user__Name").value);
+    
+    //localStorage.setItem("userName",document.getElementById("user__Name").value);
     //console.log(localStorage.getItem("userName"));
-    document.getElementById("entered__username").innerHTML=localStorage.getItem("userName");
-    document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName");
+    var userName=document.getElementById('user__Name').value;         //gets user name and clears field
     document.getElementById("user__Name").value="";
-    localStorage.setItem('comp__score',0);
-    localStorage.setItem('user__score',0);
+    //localStorage.setItem('comp__score',0);     sets user and computer score 
+    //localStorage.setItem('user__score',0);
+    let cookieName=createCookie('cookieName',userName,2);
+    let cookieData=readCookie(cookieName);
+    console.log(cookieData);
+    
+
+    
 
 }
 
+function newpage(){
+    //window.location.href="./gameplay.html?userName="+page__Name;
+    window.location.href="./gameplay.html";
+        
+    //console.log(localStorage.getItem("userName"));
+    //document.getElementById("entered__username").innerHTML=page__Name;   //localStorage.getItem("userName");
+    //document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName");
+}
+function createCookie(name,value,days){
+    if (days){
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires="; expires="+date.toGMTString();
+    }
+    else var expires="";
+    document.cookie=name+"="+value+expires+"; path=/";
+    //alert('cookie created');
+  
+}
+
+function readCookie(cookieName){
+    alert(cookieName);
+    var nameEQ=cookieName+"=";
+    var ca =document.cookie.split(';');
+    for (var i=0; i< ca.length; i++){
+        var c =ca[i];
+        while (c.charAt(0)==' ') c=c.substring(1,c.length);
+        if (c.indexOf(nameEQ)==0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+
+}
+
+
 function gameplay(char__Select){
     //main gameplay function
-    document.getElementById('user_NameDisplay').scrollIntoView();
-    localStorage.setItem('userSelect',char__Select);
-    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
+    //document.getElementById('user_NameDisplay').scrollIntoView();
+    localStorage.setItem('userSelect',char__Select);  //sets user selection as global
+    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));        //computer select, passes userSelection so selections are not the same
     //console.log(comp__Select,localStorage.getItem('userSelect'));
-    const comp__Char=char__Link(comp__Select);
+    const comp__Char=char__Link(comp__Select);                  //gets links for user and comp characters images
     const user__Char=char__Link(localStorage.getItem('userSelect'));
-    //window.location.href="./gameplay.html";
-    const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
-    score__Update(code);
-    score__Display();
-    const result_sentence=displayCharResults([winner,loser,code]);
+    
+    const [winner,loser,code]=gameWinner(char__Select,comp__Select);      //determines winner, returns winner, loser and code re winner
+    score__Update(code);                                        //updates score based on code 
+    score__Display();                                           
+    const uname=localStorage.getItem("userName")
+    const result_sentence=displayCharResults([uname,winner,loser,code]);
 
     //console.log(result_sentence);
     //displayCompChar(comp__Char);   
@@ -142,39 +183,49 @@ function score__Update(code){
         var comp__score=parseInt(localStorage.getItem('comp__score'));
         localStorage.setItem('comp__score',++comp__score);
     }
+    if((user__score+comp__score)==5){
+        endGame(user__score,comp__score);
+    }
     //console.log(localStorage.getItem('user__score'),localStorage.getItem('comp__score'));
 }
 function score__Display(){
     
+  
+    //window.location.href="./gameplay.html"+"?n="+localStorage.getItem('userName');
+    //document.getElementById('user_NameDisplay').innerHTML=localStorage.getItem('user__score');
     document.getElementById('user_score').innerHTML=localStorage.getItem('user__score');
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
 }
 
-function displayCharResults([winner,loser,code]){
+function displayCharResults([uname,winner,loser,code]){
     
     let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
     let char__names=['Elf','Giant','Wizzard'];
-    let winner__name=['You',"The Computer"];
-    if (code==0){
-        win=' win';
-    }else{
-        win=' wins';
-    }
-    let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
+    let winner__name=[uname,"The Computer"];
+
+    let result_sentence=winner__name[code]+' wins, '+char__names[winner]+' beats '+char__names[loser]+'.';
     //console.log(result_sentence);
     document.getElementById('results__sentence').innerHTML=result_sentence;
 
     document.getElementById("user__picResults").src=char__links[winner];
     document.getElementById("comp__picResults").src=char__links[loser];
-    
-    
-    
-    
-    
-    
-    
-    
     //return result_sentence;
 
+}
+
+function endGame(user__score,comp__score){
+    console.log(user__score,comp__score);
+    console.log()
+
+}
+
+
+
+
+
+function testp2(){
+    window.location.href="./gameplay.html";
+    document.getElementById("user_NameDisplay").innerHTML=localStorage.getItem('userName');
+    
 }
