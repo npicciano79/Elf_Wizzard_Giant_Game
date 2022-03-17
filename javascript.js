@@ -32,8 +32,8 @@ function showSlides(n){
     for (i=0;i<dots.length;i++){
         dots[i].className=dots[i].className.replace(" active","");
     }
-    slides[slideIndex-1].style.display=" block";
-    dots[slideIndex-1].className+=" active";
+    //slides[slideIndex-1].style.display=" block";
+    //dots[slideIndex-1].className+=" active";
 
 }
 
@@ -63,7 +63,7 @@ function gameplay(char__Select){
     score__Update(code);
     score__Display();
     gameCount();
-    //const result_sentence=displayCharResults([winner,loser,code]);
+    const result_sentence=displayCharResults([winner,loser,code]);
     
 
     //console.log(result_sentence);
@@ -160,11 +160,10 @@ function gameCount(){
         localStorage.setItem('game__count',++game__count);
     }else{
         gameEnd();
+    }       
     }
     
 
-
-}
 
 function displayCharResults([winner,loser,code]){
     
@@ -178,14 +177,26 @@ function displayCharResults([winner,loser,code]){
     }
     let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
     //console.log(result_sentence);
-    document.getElementById('results__sentence').innerHTML=result_sentence;
+    //document.getElementById('results__sentence').innerHTML=result_sentence;
 
-    document.getElementById("user__picResults").src=char__links[winner];
-    document.getElementById("comp__picResults").src=char__links[loser];
-    //return result_sentence;
+    //document.getElementById("user__picResults").src=char__links[winner];
+    //document.getElementById("comp__picResults").src=char__links[loser];
+    return winner__name[code];
 
 }
 
 function gameEnd(){
+    const username=localStorage.getItem("userName");
+    const user__score=localStorage.getItem('user__score');
+    const comp__score=localStorage.getItem('comp__score');
+    //console.log(username,user__score,comp__score);
 
+    window.location.href="./gameplay.html"+"#"+username+"/us"+user__score+"/cs"+comp__score;
+    //document.getElementById("result__Display").innerHTML=localStorage.getItem("userName");
+    resultDisplay(username,user__score,comp__score);
+}
+
+function resultDisplay(username,user__score,comp__score){
+    //console.log(username);
+    console.log(window.location.href);
 }
