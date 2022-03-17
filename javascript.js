@@ -1,6 +1,6 @@
 localStorage.setItem('comp__score',0);
 localStorage.setItem('user__score',0);
-localStorage.setItem('game__count',0);
+localStorage.setItem('game__count',1);
 
 function defaultSlide(){
     console.log('test');
@@ -166,7 +166,6 @@ function gameCount(){
 
 
 function displayCharResults([winner,loser,code]){
-    
     let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
     let char__names=['Elf','Giant','Wizzard'];
     let winner__name=['You',"The Computer"];
@@ -176,6 +175,10 @@ function displayCharResults([winner,loser,code]){
         win=' wins';
     }
     let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
+    var currentElement=document.getElementById("user__char")
+
+
+
     //console.log(result_sentence);
     //document.getElementById('results__sentence').innerHTML=result_sentence;
 
@@ -189,14 +192,16 @@ function gameEnd(){
     const username=localStorage.getItem("userName");
     const user__score=localStorage.getItem('user__score');
     const comp__score=localStorage.getItem('comp__score');
-    //console.log(username,user__score,comp__score);
+    const url=`./gameplay.html#un=${username}us=${user__score}cs=${comp__score}`;
 
-    window.location.href="./gameplay.html"+"#"+username+"/us"+user__score+"/cs"+comp__score;
+    //window.location.href=url;
+    //console.log(username,user__score,comp__score);
     //document.getElementById("result__Display").innerHTML=localStorage.getItem("userName");
-    resultDisplay(username,user__score,comp__score);
+    resultDisplay(username,user__score,comp__score,url);
 }
 
-function resultDisplay(username,user__score,comp__score){
-    //console.log(username);
-    console.log(window.location.href);
+function resultDisplay(username,user__score,comp__score,url){
+    window.location.href=url;
+
+    console.log(window.location.host);
 }
