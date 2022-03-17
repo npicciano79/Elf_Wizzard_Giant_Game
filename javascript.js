@@ -47,12 +47,8 @@ function name__Get(){
     //localStorage.setItem('comp__score',0);     sets user and computer score 
     //localStorage.setItem('user__score',0);
     let cookieName=createCookie('cookieName',userName,2);
-    let cookieData=readCookie(cookieName);
-    console.log(cookieData);
+    let cookieValue=readCookie(cookieName);
     
-
-    
-
 }
 
 function newpage(){
@@ -71,18 +67,19 @@ function createCookie(name,value,days){
     }
     else var expires="";
     document.cookie=name+"="+value+expires+"; path=/";
-    //alert('cookie created');
+
   
 }
 
 function readCookie(cookieName){
-    alert(cookieName);
     var nameEQ=cookieName+"=";
     var ca =document.cookie.split(';');
     for (var i=0; i< ca.length; i++){
         var c =ca[i];
         while (c.charAt(0)==' ') c=c.substring(1,c.length);
         if (c.indexOf(nameEQ)==0) return c.substring(nameEQ.length,c.length);
+        console.log(c.substring(nameEQ.length,c.length));
+          
     }
     return null;
 
