@@ -235,21 +235,10 @@ body{
 .score_keep{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     padding:20px;
-}
-.user_Score{
     font-size: 50px;
-    margin-right: 100px;
 }
-.comp_score{
-    font-size: 50px;
-    margin-right: 40px;
-
-}
-
-
-
 
 
 .results{

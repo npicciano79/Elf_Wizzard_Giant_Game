@@ -1,5 +1,6 @@
 localStorage.setItem('comp__score',0);
 localStorage.setItem('user__score',0);
+localStorage.setItem('game__count',0);
 
 function defaultSlide(){
     console.log('test');
@@ -51,7 +52,7 @@ function name__Get(){
 
 function gameplay(char__Select){
     //main gameplay function
-    document.getElementById('user_NameDisplay').scrollIntoView();
+    //document.getElementById('user_NameDisplay').scrollIntoView();
     localStorage.setItem('userSelect',char__Select);
     const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
     //console.log(comp__Select,localStorage.getItem('userSelect'));
@@ -61,7 +62,9 @@ function gameplay(char__Select){
     const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
     score__Update(code);
     score__Display();
-    const result_sentence=displayCharResults([winner,loser,code]);
+    gameCount();
+    //const result_sentence=displayCharResults([winner,loser,code]);
+    
 
     //console.log(result_sentence);
     //displayCompChar(comp__Char);   
@@ -150,6 +153,18 @@ function score__Display(){
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
 }
+function gameCount(){
+    var game__count=localStorage.getItem('game__count');
+    if (game__count<=5){
+        document.getElementById('game__count').innerHTML=game__count;
+        localStorage.setItem('game__count',++game__count);
+    }else{
+        gameEnd();
+    }
+    
+
+
+}
 
 function displayCharResults([winner,loser,code]){
     
@@ -167,14 +182,10 @@ function displayCharResults([winner,loser,code]){
 
     document.getElementById("user__picResults").src=char__links[winner];
     document.getElementById("comp__picResults").src=char__links[loser];
-    
-    
-    
-    
-    
-    
-    
-    
     //return result_sentence;
+
+}
+
+function gameEnd(){
 
 }
