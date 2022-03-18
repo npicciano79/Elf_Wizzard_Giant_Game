@@ -4,9 +4,7 @@
         <title>Elves vs Wizzards vs Giants</title>
         <link rel='stylesheet' href='styles.css'>
         <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-        <script src='javascript.js'>   
-            defaultSlide();
-        </script>
+        <script src='javascript.js'></script>
 
     </head>
     <body>
@@ -103,9 +101,11 @@
             <p id="select__Instruct">Select the Elf, Giant or Wizzard</p>
             
             <div class="game__Main" id="main__select">
+                <div class="char__Display">  
                 <input id="user__char" type="image" src="images/elf2tran.png" onclick="gameplay(0)">
                 <input id="user__char" type="image" src="images/gianttran.png" onclick="gameplay(1)">
-                <input id="user__char" type="image" src="images/wizzardtrans.png" onclick="gameplay(2)">   
+                <input id="user__char" type="image" src="images/wizzardtrans.png" onclick="gameplay(2)" >   
+                </div>
             </div>
         
             <div class="score_keep">

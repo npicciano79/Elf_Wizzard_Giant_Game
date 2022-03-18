@@ -9,7 +9,7 @@ html{
 body{
     font-family: 'MedievalSharp', cursive;
     color:floralwhite;
-    background-color: darkslateblue;
+    background-color: black;
 }
 .castle__title{
     display: flex;
@@ -205,8 +205,7 @@ body{
 }
 .char__Display{
     display: flex;
-    margin-top: 50px;
-    justify-content: center;
+
 }
 .vs{
     margin-right: 10px;
