@@ -53,19 +53,20 @@ function name__Get(){
 function gameplay(char__Select){
     //main gameplay function
     //document.getElementById('user_NameDisplay').scrollIntoView();
-    //localStorage.setItem('userSelect',char__Select);
+    localStorage.setItem('userSelect',char__Select);
     displayHide();
-    //const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
+    
+    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
     
     //console.log(comp__Select,localStorage.getItem('userSelect'));
-    //const comp__Char=char__Link(comp__Select);
-    //const user__Char=char__Link(localStorage.getItem('userSelect'));
+    const comp__Char=char__Link(comp__Select);
+    const user__Char=char__Link(localStorage.getItem('userSelect'));
     //window.location.href="./gameplay.html";
-    //const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
-    //score__Update(code);
-    //score__Display();
-    //gameCount();
-    //displayCharResults([winner,loser,code]);
+    const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
+    score__Update(code);
+    score__Display();
+    gameCount();
+    displayCharResults([winner,loser,code]);
     
     
     //const result_sentence=displayCharResults([winner,loser,code]);
@@ -167,7 +168,7 @@ function gameCount(){
     }
     
 
-
+//display winner loser for each game
 function displayCharResults([winner,loser,code]){
     let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
     let char__names=['Elf','Giant','Wizzard'];
@@ -176,26 +177,28 @@ function displayCharResults([winner,loser,code]){
         win=' win';
     }else{
         win=' wins';
-    }
-    
-    
-
-
-
-    //let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
-    //console.log(result_sentence);
-    //document.getElementById('results__sentence').innerHTML=result_sentence;
-
+    }   
+    let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
+    document.getElementById('rs__sentence').innerHTML=result_sentence;
     //document.getElementById("user__picResults").src=char__links[winner];
     //document.getElementById("comp__picResults").src=char__links[loser];
+
+    //var y = document.getElementById("results");
+
+    //if(y.style.display==="none"){
+      //  y.style.display='flex';
+    //}else{
+      //  y.style.display='none';
+    //}
+    
     //return winner__name[code];
 
 }
 
 
 function displayHide(){
-    
-    var x = document.getElementById("main__select");
+
+    var x = document.getElementsByClassName("main__select");
     if(x.style.display==="none"){
         x.style.display='flex';
     }else{
