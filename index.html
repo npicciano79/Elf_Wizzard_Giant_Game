@@ -96,7 +96,7 @@
             </div>
         </div>    
 
-               
+        <div id="main__play">  
             <div class="user__Name"><span id="entered__username"></span><div class="vs">vs.   The Computer</div></div>
             <p id="select__Instruct">Select the Elf, Giant or Wizzard</p>
             
@@ -104,24 +104,17 @@
                 <div class="char__Display">  
                 <input id="user__char" type="image" src="images/elf2tran.png" onclick="gameplay(0)">
                 <input id="user__char" type="image" src="images/gianttran.png" onclick="gameplay(1)">
-                <input id="user__char" type="image" src="images/wizzardtrans.png" onclick="gameplay(2)" >   
+                <input id="user__char" type="image" src="images/wizzardtrans.png" onclick="gameplay(2)" >
+                 
                 </div>
-            </div>
-        
-            <div class="score_keep">
-                <div class="user_Score"><span id="entered__usernameScore"></span><span id="user_score"></span></div>
-                <div class="comp_score">Computer Score: <span id='comp__score'></span></div>
-                <div class="game_count">Game: <span id="game__count"></span></div>
-            </div>
-
-
-            <!--display results of game-->
             
+            </div> 
+        </div> 
             <div class="results" id="results">
                 <div class="user__Char" >
                     <div class="user__Name">
                         <span id="user_NameDisplay"></span>
-                            <div class="user_Pic"><img src="images/elf2tran.png" id="user__picResults"></div> 
+                            <div class="user_Pic"><img src="" id="user__picResults"></div> <div>Vs.</div>
                             <div id="comp_Pic"><img src="" id="comp__picResults"></div>
                     </div>
                 </div>
@@ -130,7 +123,20 @@
                     <p id="rs__sentence"></p>
                 </div>
             </div>
+
+
+            <div class="score_keep">
+                 
+                <div class="user_Score"><span id="entered__usernameScore"></span><span id="user_score"></span></div>
+                <div class="comp_score">Computer Score: <span id='comp__score'></span></div>
+                <div class="game_count">Game: <span id="game__count"></span></div>
+            </div>
             
+
+            <!--display results of game-->
+            
+            
+        
 
 
 

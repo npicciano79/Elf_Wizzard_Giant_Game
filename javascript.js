@@ -86,7 +86,7 @@ function computerSelect(max,char__Select){
 }
 
 function char__Link(val){
-
+    
     //determine and display comp value
     if (val==0){
         temp__charLink="images/elf2tran.png";
@@ -166,7 +166,19 @@ function gameCount(){
         gameEnd();
     }       
     }
+
+
+function displayHide(){
+    //hide main gameplay display
+    var x= document.getElementById('main__play');
+    x.style.display='none';
+    //create element add to main__select 
+    document.getElementById('results').style.display='flex';
     
+    
+
+    
+}
 
 //display winner loser for each game
 function displayCharResults([winner,loser,code]){
@@ -180,8 +192,8 @@ function displayCharResults([winner,loser,code]){
     }   
     let result_sentence=winner__name[code]+win+', '+char__names[winner]+' beats '+char__names[loser]+'.'
     document.getElementById('rs__sentence').innerHTML=result_sentence;
-    //document.getElementById("user__picResults").src=char__links[winner];
-    //document.getElementById("comp__picResults").src=char__links[loser];
+    document.getElementById("user__picResults").src=char__links[winner];
+    document.getElementById("comp__picResults").src=char__links[loser];
 
     //var y = document.getElementById("results");
 
@@ -193,17 +205,6 @@ function displayCharResults([winner,loser,code]){
     
     //return winner__name[code];
 
-}
-
-
-function displayHide(){
-
-    var x = document.getElementsByClassName("main__select");
-    if(x.style.display==="none"){
-        x.style.display='flex';
-    }else{
-        x.style.display='none';
-    }
 }
 
 function gameEnd(){
