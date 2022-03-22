@@ -2,15 +2,11 @@ localStorage.setItem('comp__score',0);
 localStorage.setItem('user__score',0);
 localStorage.setItem('game__count',1);
 
-function defaultSlide(){
-    console.log('test');
-
-};
-
+//initial slide index
 var slideIndex=1;
 showSlides(slideIndex);
 
-//next pervious controls
+//next perevious controls
 function plusSlides(n){
     showSlides(slideIndex+=n);
 }
@@ -19,11 +15,11 @@ function plusSlides(n){
 function currentSlide(n){
     showSlides(slideIndex=n);
 }
-
+//carousel functions
 function showSlides(n){
     var i;
     var slides=document.getElementsByClassName("carousel__slide");
-    var dots=document.getElementsByClassName("carousel__indicator");
+    var dots=document.getElementsByClassName("carousel__nav");
     if (n>slides.length){slideIndex=1}
     if (n<1){slideIndex=slides.length}
     for (i=0;i<slides.length;i++){
@@ -32,7 +28,7 @@ function showSlides(n){
     for (i=0;i<dots.length;i++){
         dots[i].className=dots[i].className.replace(" active","");
     }
-    slides[slideIndex-1].style.display=" block";
+    slides[slideIndex-1].style.display=" inline";
     dots[slideIndex-1].className+=" active";
 
 }
@@ -50,32 +46,6 @@ function name__Get(){
 
 }
 
-function gameplay(char__Select){
-    //main gameplay function
-    //document.getElementById('user_NameDisplay').scrollIntoView();
-    localStorage.setItem('userSelect',char__Select);
-    hideMainGame();
-    
-    
-    
-    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
-    
-    //console.log(comp__Select,localStorage.getItem('userSelect'));
-    const comp__Char=char__Link(comp__Select);
-    const user__Char=char__Link(localStorage.getItem('userSelect'));
-    //window.location.href="./gameplay.html";
-    const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
-    score__Update(code);
-    score__Display();
-    gameCount();
-    displayCharResults([winner,loser,code]);
-    
-    
-    //const result_sentence=displayCharResults([winner,loser,code]);
-    //console.log(result_sentence);
-    //displayCompChar(comp__Char);   
-    
-}
 
 function computerSelect(max,char__Select){
     //determine computer selection random number
@@ -230,4 +200,33 @@ function resultDisplay(username,user__score,comp__score,url){
     window.location.href=url;
 
     console.log(window.location.host);
+}
+
+
+//main game driver
+function gameplay(char__Select){
+    //main gameplay function
+    //document.getElementById('user_NameDisplay').scrollIntoView();
+    localStorage.setItem('userSelect',char__Select);
+    hideMainGame();
+    
+    
+    
+    const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
+    
+    //console.log(comp__Select,localStorage.getItem('userSelect'));
+    const comp__Char=char__Link(comp__Select);
+    const user__Char=char__Link(localStorage.getItem('userSelect'));
+    //window.location.href="./gameplay.html";
+    const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
+    score__Update(code);
+    score__Display();
+    gameCount();
+    displayCharResults([winner,loser,code]);
+    
+    
+    //const result_sentence=displayCharResults([winner,loser,code]);
+    //console.log(result_sentence);
+    //displayCompChar(comp__Char);   
+    
 }
