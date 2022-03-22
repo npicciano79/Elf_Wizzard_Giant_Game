@@ -54,7 +54,9 @@ function gameplay(char__Select){
     //main gameplay function
     //document.getElementById('user_NameDisplay').scrollIntoView();
     localStorage.setItem('userSelect',char__Select);
-    displayHide();
+    hideMainGame();
+    
+    
     
     const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
     
@@ -165,20 +167,25 @@ function gameCount(){
     }else{
         gameEnd();
     }       
-    }
-
-
-function displayHide(){
-    //hide main gameplay display
-    var x= document.getElementById('main__play');
-    x.style.display='none';
-    //create element add to main__select 
-    document.getElementById('results').style.display='flex';
-    
-    
-
-    
 }
+
+
+var hideMainGame=function(){
+    var x = document.getElementById('main__play');
+    x.style.display='none';
+    var y = document.getElementById('results');
+    y.style.display='flex';
+    alert(document.getElementById('results').style.display)
+   
+}
+
+
+
+
+
+
+
+
 
 //display winner loser for each game
 function displayCharResults([winner,loser,code]){
