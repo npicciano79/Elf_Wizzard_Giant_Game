@@ -140,7 +140,7 @@ function gameCount(){
 }
 
 
-var hideMainGame=function(){
+function hideMainGame(){
     var x = document.getElementById('main__play');
     x.style.display='none';
     var y = document.getElementById('results');
