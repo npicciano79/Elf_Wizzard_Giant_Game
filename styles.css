@@ -253,10 +253,17 @@ carousel css{
     margin-bottom: 50px;
 
 }
+/*
+#user__picResults{
+    display: none;
+    transition: 2s;
+}
+*/
 #vs{
     font-size: 50px;
     padding:20px;
 }
+
 
 
 

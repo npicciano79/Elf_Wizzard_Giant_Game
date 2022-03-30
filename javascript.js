@@ -143,17 +143,29 @@ function gameCount(){
 function hideMainGame(){
     var x = document.getElementById('main__play');
     x.style.display='none';
-    var y = document.getElementById('results');
-    y.style.display='flex';
-    alert(document.getElementById('results').style.display)
+    displayGameResult();
+    //alert(document.getElementById('results').style.display)
    
 }
 
+function displayGameResult(){
+    var e=document.getElementById('results');
+    e.style.display='flex';
+    //var y = document.getElementById('user__picResults');
+    //y.style.display='flex';
+    const myTimeout=setTimeout(returnDisplay,5000);
+
+}
+function returnDisplay(){
+    var x=document.getElementById('main__play');
+    x.style.display='flex';
+    var y=document.getElementById('results');
+    y.style.display='none';
 
 
 
 
-
+}
 
 
 
@@ -195,25 +207,20 @@ function gameEnd(){
     //document.getElementById("result__Display").innerHTML=localStorage.getItem("userName");
     resultDisplay(username,user__score,comp__score,url);
 }
-
-function resultDisplay(username,user__score,comp__score,url){
+/*
+function endgameDisplay(username,user__score,comp__score,url){
     window.location.href=url;
 
     console.log(window.location.host);
 }
-
+*/
 
 //main game driver
 function gameplay(char__Select){
     //main gameplay function
     //document.getElementById('user_NameDisplay').scrollIntoView();
     localStorage.setItem('userSelect',char__Select);
-    hideMainGame();
-    
-    
-    
     const comp__Select=computerSelect(3,localStorage.getItem('userSelect'));
-    
     //console.log(comp__Select,localStorage.getItem('userSelect'));
     const comp__Char=char__Link(comp__Select);
     const user__Char=char__Link(localStorage.getItem('userSelect'));
@@ -223,7 +230,7 @@ function gameplay(char__Select){
     score__Display();
     gameCount();
     displayCharResults([winner,loser,code]);
-    
+    hideMainGame();   
     
     //const result_sentence=displayCharResults([winner,loser,code]);
     //console.log(result_sentence);
