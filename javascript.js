@@ -129,16 +129,19 @@ function score__Display(){
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
 }
+/*
 function gameCount(){
     var game__count=localStorage.getItem('game__count');
-    if (game__count<=5){
+    
+    if (game__count<6){
         document.getElementById('game__count').innerHTML=game__count;
-        localStorage.setItem('game__count',++game__count);
+        localStorage.setItem('game__count',++game__count);    
+
     }else{
         gameEnd();
     }       
 }
-
+*/
 
 function hideMainGame(){
     var x = document.getElementById('main__play');
@@ -153,7 +156,16 @@ function displayGameResult(){
     e.style.display='flex';
     //var y = document.getElementById('user__picResults');
     //y.style.display='flex';
-    const myTimeout=setTimeout(returnDisplay,5000);
+    var game__count=localStorage.getItem('game__count');
+    
+    if (game__count<=5){
+        document.getElementById('game__count').innerHTML=game__count;
+        localStorage.setItem('game__count',++game__count);    
+        const myTimeout=setTimeout(returnDisplay,5000);
+    }else{
+        gameEnd();
+    }
+    
 
 }
 function returnDisplay(){
@@ -162,11 +174,7 @@ function returnDisplay(){
     var y=document.getElementById('results');
     y.style.display='none';
 
-
-
-
 }
-
 
 
 //display winner loser for each game
@@ -197,15 +205,35 @@ function displayCharResults([winner,loser,code]){
 }
 
 function gameEnd(){
+    //needs gamewinner userscore and computer score
+    //hide game and result display
+    var x=document.getElementById('main__play');
+    x.style.display='none';
+    var y=document.getElementById('results');
+    y.style.display='none';
+
+    //gets username, comp_score, user_score
     const username=localStorage.getItem("userName");
     const user__score=localStorage.getItem('user__score');
     const comp__score=localStorage.getItem('comp__score');
-    const url=`./gameplay.html#un=${username}us=${user__score}cs=${comp__score}`;
+
+    //determine overall winner
+    if (user__score>comp__score){
+        var message='Congratulations, '+username+' you have defeated the computer by a score of '+user__score+' to ' +comp__score;
+    }else{
+        let message='Sorry, '+username+' you have been defeated by a score of ' +comp__score+ ' to '+user__score;
+    }
+    document.getElementsByClassName('game__results').style.display='flex';
+    document.getElementById('results__message').innerHTML(message);
+
+
+    
+    //const url=`./gameplay.html#un=${username}us=${user__score}cs=${comp__score}`;
 
     //window.location.href=url;
     //console.log(username,user__score,comp__score);
     //document.getElementById("result__Display").innerHTML=localStorage.getItem("userName");
-    resultDisplay(username,user__score,comp__score,url);
+    //resultDisplay(username,user__score,comp__score,url);
 }
 /*
 function endgameDisplay(username,user__score,comp__score,url){
@@ -228,7 +256,7 @@ function gameplay(char__Select){
     const [winner,loser,code]=gameWinner(char__Select,comp__Select); 
     score__Update(code);
     score__Display();
-    gameCount();
+    //gameCount();
     displayCharResults([winner,loser,code]);
     hideMainGame();   
     

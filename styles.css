@@ -297,20 +297,10 @@ carousel css{
 
 
 
-
-/*
-
-
-.game__Results{
+.game__results{
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 150px;
+    font-size: 100px;
 }
-#result__Display{
-    display: flex;
-    align-items: center;
-}
-
-
-*/
