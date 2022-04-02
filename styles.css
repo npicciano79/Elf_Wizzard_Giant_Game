@@ -292,13 +292,8 @@ carousel css{
 }
  
 
-
-
-
-
-
 .game__results{
-    margin-top: 20px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;

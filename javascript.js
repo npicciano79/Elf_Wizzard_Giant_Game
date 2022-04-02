@@ -39,7 +39,7 @@ function name__Get(){
     localStorage.setItem("userName",document.getElementById("user__Name").value);
     //console.log(localStorage.getItem("userName"));
     document.getElementById("entered__username").innerHTML=localStorage.getItem("userName");
-    document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName");
+    document.getElementById("entered__usernameScore").innerHTML=localStorage.getItem("userName")+': ';
     document.getElementById("user__Name").value="";
     localStorage.setItem('comp__score',0);
     localStorage.setItem('user__score',0);
@@ -124,8 +124,9 @@ function score__Update(code){
     //console.log(localStorage.getItem('user__score'),localStorage.getItem('comp__score'));
 }
 function score__Display(){
-    
+  
     document.getElementById('user_score').innerHTML=localStorage.getItem('user__score');
+    
     document.getElementById('comp__score').innerHTML=localStorage.getItem('comp__score');
 
 }
@@ -157,10 +158,10 @@ function displayGameResult(){
     //var y = document.getElementById('user__picResults');
     //y.style.display='flex';
     var game__count=localStorage.getItem('game__count');
-    
-    if (game__count<=5){
-        document.getElementById('game__count').innerHTML=game__count;
-        localStorage.setItem('game__count',++game__count);    
+    document.getElementById('game__count').innerHTML=game__count;
+    localStorage.setItem('game__count',++game__count);
+
+    if (game__count<=5){   
         const myTimeout=setTimeout(returnDisplay,5000);
     }else{
         gameEnd();
@@ -211,6 +212,8 @@ function gameEnd(){
     x.style.display='none';
     var y=document.getElementById('results');
     y.style.display='none';
+    var z=document.getElementByClass("score_keep");
+    z.style.display='none';
 
     //gets username, comp_score, user_score
     const username=localStorage.getItem("userName");
@@ -223,9 +226,20 @@ function gameEnd(){
     }else{
         let message='Sorry, '+username+' you have been defeated by a score of ' +comp__score+ ' to '+user__score;
     }
-    document.getElementsByClassName('game__results').style.display='flex';
-    document.getElementById('results__message').innerHTML(message);
+    //document.getElementsByClassName('game__results').style.display='flex';
+    //document.getElementById('results__message').innerHTML(message);
+    
+    
 
+    //const container=document.querySelector('#game__results');
+    //const content=document.createElement('p');
+    //content.classList.add('content');
+    //content.textContent=message;
+    //container.appendChild(content);
+
+    //scroll into view
+    const element=document.getElementById('#game__results');
+    
 
     
     //const url=`./gameplay.html#un=${username}us=${user__score}cs=${comp__score}`;
