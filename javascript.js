@@ -178,7 +178,7 @@ function returnDisplay(){
 }
 
 
-//display winner loser for each game
+//display winner loser and result sentence for each game
 function displayCharResults([winner,loser,code]){
     let char__links=["images/elf2tran.png","images/gianttran.png","images/wizzardtrans.png" ];
     let char__names=['Elf','Giant','Wizzard'];
@@ -208,37 +208,36 @@ function displayCharResults([winner,loser,code]){
 function gameEnd(){
     //needs gamewinner userscore and computer score
     //hide game and result display
-    var x=document.getElementById('main__play');
-    x.style.display='none';
-    var y=document.getElementById('results');
-    y.style.display='none';
-    var z=document.getElementByClass("score_keep");
-    z.style.display='none';
-
+    document.getElementById('score_keep').style.display='none';
+    document.getElementById('main__play').style.display='none';
+    document.getElementById('results').style.display='none';
+    
+    
     //gets username, comp_score, user_score
     const username=localStorage.getItem("userName");
     const user__score=localStorage.getItem('user__score');
     const comp__score=localStorage.getItem('comp__score');
-
+    
+    
     //determine overall winner
     if (user__score>comp__score){
         var message='Congratulations, '+username+' you have defeated the computer by a score of '+user__score+' to ' +comp__score;
     }else{
-        let message='Sorry, '+username+' you have been defeated by a score of ' +comp__score+ ' to '+user__score;
+        var message='Sorry, '+username+' you have been defeated by a score of ' +comp__score+ ' to '+user__score;
     }
     //document.getElementsByClassName('game__results').style.display='flex';
     //document.getElementById('results__message').innerHTML(message);
     
-    
 
-    //const container=document.querySelector('#game__results');
-    //const content=document.createElement('p');
-    //content.classList.add('content');
-    //content.textContent=message;
-    //container.appendChild(content);
+    //dom manipulation 
+    const container=document.querySelector('#game__results');
+    const content=document.createElement('p');
+    content.classList.add('content');
+    content.textContent=message;
+    container.appendChild(content);
 
     //scroll into view
-    const element=document.getElementById('#game__results');
+    //const element=document.getElementById('#game__results');
     
 
     

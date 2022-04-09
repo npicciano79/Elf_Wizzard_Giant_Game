@@ -283,7 +283,7 @@ carousel css{
 
 
 /*score of game*/
-.score_keep{
+#score_keep{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
