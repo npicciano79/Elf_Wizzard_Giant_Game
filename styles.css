@@ -1,7 +1,7 @@
 *{
     margin:0px;
     padding:0px;
-    
+    font-family: 'MedievalSharp', cursive;
 }
 html{
     scroll-behavior: smooth;
@@ -298,4 +298,25 @@ carousel css{
     align-items: center;
     justify-content: center;
     font-size: 100px;
+}
+.game__results p{
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+#final__buttons{
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 50px;
+
+}
+#exitplay__btn{
+    padding: 0px;
+    font-size: 50px;
+    border: none;
+    color:white;
+    background-color: black;
+
+
 }

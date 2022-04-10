@@ -222,31 +222,33 @@ function gameEnd(){
     //determine overall winner
     if (user__score>comp__score){
         var message='Congratulations, '+username+' you have defeated the computer by a score of '+user__score+' to ' +comp__score;
+        var resultimage=0;
     }else{
         var message='Sorry, '+username+' you have been defeated by a score of ' +comp__score+ ' to '+user__score;
+        var resultimage=1;
     }
     //document.getElementsByClassName('game__results').style.display='flex';
     //document.getElementById('results__message').innerHTML(message);
+
+    //results image
+    if (resultimage==0){
+        
+    }
+
     
 
-    //dom manipulation 
+    //dom manipulation, display result message 
     const container=document.querySelector('#game__results');
     const content=document.createElement('p');
     content.classList.add('content');
     content.textContent=message;
     container.appendChild(content);
+    document.getElementById('game__results').scrollIntoView();
 
-    //scroll into view
-    //const element=document.getElementById('#game__results');
+    //call endDisplay after 5 seconds
+    const finalTimeout=setTimeout(endDisplay,5000);
+
     
-
-    
-    //const url=`./gameplay.html#un=${username}us=${user__score}cs=${comp__score}`;
-
-    //window.location.href=url;
-    //console.log(username,user__score,comp__score);
-    //document.getElementById("result__Display").innerHTML=localStorage.getItem("userName");
-    //resultDisplay(username,user__score,comp__score,url);
 }
 /*
 function endgameDisplay(username,user__score,comp__score,url){
@@ -255,6 +257,24 @@ function endgameDisplay(username,user__score,comp__score,url){
     console.log(window.location.host);
 }
 */
+
+function endDisplay(){
+    
+    document.getElementById('game__results').style.display='none';
+    document.getElementById('final__buttons').style.display='flex';
+
+}
+
+function gameExit(exitcode){
+    if(exitcode==0){
+        window.location.href='www.google.com';
+    }else{
+        document.getElementById("castle__title").scrollIntoView;
+    }
+
+}
+
+
 
 //main game driver
 function gameplay(char__Select){
