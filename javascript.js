@@ -234,6 +234,10 @@ function gameEnd(){
     if (resultimage==0){
         
     }
+    //dom manipulation, displays results image, fireworks display
+    
+
+
 
     
 
@@ -258,6 +262,8 @@ function endgameDisplay(username,user__score,comp__score,url){
 }
 */
 
+
+
 function endDisplay(){
     
     document.getElementById('game__results').style.display='none';
@@ -267,9 +273,9 @@ function endDisplay(){
 
 function gameExit(exitcode){
     if(exitcode==0){
-        window.location.href='www.google.com';
-    }else{
-        document.getElementById("castle__title").scrollIntoView;
+        location.replace('https://www.google.com');
+    }else if(exitcode==1){
+        window.location.reload();
     }
 
 }
